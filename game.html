@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#041b2b">
+  <title>TypeRush — Aqua Type</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TypeRush Aqua Type">
+        <span class="brand-mark">〰</span><span>Type<span class="brand-accent">Rush</span></span>
+        <span class="edition">AQUA TYPE</span>
+      </a>
+      <div class="hud">
+        <div class="stat"><span class="stat-label">SCORE</span><strong id="score">00000</strong></div>
+        <div class="stat"><span class="stat-label">BEST</span><strong id="best">00000</strong></div>
+        <div class="stat"><span class="stat-label">LEVEL</span><strong id="level">01</strong></div>
+        <div class="lives" aria-label="Three collision lives">
+          <span class="life" id="life1">◆</span><span class="life" id="life2">◆</span><span class="life" id="life3">◆</span>
+        </div>
+        <button id="soundBtn" class="icon-btn" title="Toggle sound" aria-label="Toggle sound">♫</button>
+        <button id="pauseBtn" class="icon-btn" title="Pause game" aria-label="Pause game">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> LIVE AQUARIUM · TYPING ARCADE</div>
+        <h1>Keep the <span>ocean</span> flowing.</h1>
+        <p>Type the letter above each fish to guide it safely out of the tank.<br class="desktop-only"> Don't let them bump into each other — three collisions end the run.</p>
+      </div>
+      <div class="typing-pill"><span class="keyboard-icon">⌨</span><span><b id="typedCount">0</b><small>FISH GUIDED</small></span></div>
+    </section>
+
+    <section class="tank-frame" aria-label="Animated typing aquarium game">
+      <div class="tank-topline"><span><i></i> OCEAN SYSTEM ONLINE</span><span id="statusText">READY TO DIVE</span></div>
+      <canvas id="tank" aria-label="Fish tank game. Type the letters shown above fish."></canvas>
+      <div class="tank-vignette"></div>
+      <div class="tank-bottom-ui">
+        <span><span class="keycap">A–Z</span> TYPE A FISH'S LETTER</span>
+        <span class="collision-note"><span class="warning-dot"></span> COLLISIONS <b id="collisionCount">0</b> / 3</span>
+      </div>
+      <div id="startOverlay" class="overlay">
+        <div class="overlay-card">
+          <div class="big-fish">🐠</div>
+          <div class="eyebrow">A CALM OCEAN. A FAST KEYBOARD.</div>
+          <h2>Ready to dive?</h2>
+          <p>Type the glowing letter above a fish to help it swim away. Keep the school safe!</p>
+          <button id="startBtn" class="primary-btn">Start swimming <span>→</span></button>
+          <small>DESKTOP KEYBOARD RECOMMENDED</small>
+        </div>
+      </div>
+      <div id="pauseOverlay" class="overlay hidden">
+        <div class="overlay-card">
+          <div class="big-fish">⏸</div><h2>Take a breath.</h2>
+          <p>Your aquarium is paused.</p>
+          <button id="resumeBtn" class="primary-btn">Resume game <span>→</span></button>
+        </div>
+      </div>
+      <div id="gameOverOverlay" class="overlay hidden">
+        <div class="overlay-card">
+          <div class="big-fish">🫧</div><div class="eyebrow">DIVE COMPLETE</div>
+          <h2>Ocean's gone quiet.</h2>
+          <p>You had <b id="finalScore">0</b> points and guided <b id="finalGuided">0</b> fish.</p>
+          <button id="restartBtn" class="primary-btn">Dive again <span>↻</span></button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-bar">
+      <div class="tip"><span class="tip-icon">✦</span><span><b>PRO TIP</b> Focus on the fish closest to another one.</span></div>
+      <div class="bottom-meta"><span>BUILT FOR QUICK REFLEXES</span><span class="sound-status" id="soundStatus">SOUND OFF</span></div>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
